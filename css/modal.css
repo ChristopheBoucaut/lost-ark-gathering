@@ -1,0 +1,137 @@
+.modal {
+    position: absolute;
+    background-color: rgb(0 0 0 / 33%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.modal:not(.opened) {
+    display: none;
+}
+
+.modal > section {
+    background-color: white;
+    box-sizing: border-box;
+    margin: 28px auto;
+    max-width: 1080px;
+    padding: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.modal > section > div:first-child {
+    align-items: center;
+    display: flex;
+}
+
+.modal > section h2 {
+    flex: 1;
+    margin: 0;
+}
+
+.modal > section .close {
+    border: 2px solid black;
+    border-radius: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 24px;
+    text-align: center;
+    width: 24px;
+}
+
+.modal > section .close::before {
+    content: '✗';
+}
+
+#character label {
+    margin-right: 7px;
+}
+
+#character input + label {
+    margin-left: 7px;
+}
+
+#list-ressources ul:first-child {
+    display: flex;
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+}
+
+#list-ressources ul:first-child li {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    cursor: pointer;
+    flex: 1;
+    padding: 4px 0;
+    text-align: center;
+}
+
+#list-ressources ul:first-child li.selected {
+    background-color: #42869c;
+}
+
+#list-ressources ul:first-child li:first-child {
+    border-left: 1px solid black;
+}
+
+#list-ressources ul:last-child {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    list-style: none;
+    margin: 0;
+    padding: 7px 4px;
+}
+
+#list-ressources ul:last-child li:not(.selected) {
+    display: none;
+}
+
+#filter-continents section > div:last-child {
+    margin-top: 14px;
+}
+
+#filter-continents section div:last-child > div {
+    margin-bottom: 7px;
+}
+
+#filter-continents section div:last-child > div input {
+    display: none;
+}
+
+#filter-continents section div:last-child > div input + label {
+    cursor: pointer;
+}
+
+#filter-continents section div:last-child > div input + label > span {
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: inline-block;
+    height: 20px;
+    margin-right: 7px;
+    vertical-align: middle;
+    width: 40px;
+}
+
+#filter-continents section div:last-child > div input:checked + label > span {
+    background-color: #2c671b;
+}
+
+#filter-continents section div:last-child > div input + label > span::before {
+    border-radius: 20px;
+    content: '';
+    display: block;
+    background-color: #a6c1ff;
+    height: 100%;
+    transition: transform 0.3s;
+    width: 50%;
+}
+
+#filter-continents section div:last-child > div input:checked + label > span::before {
+    transform: translateX(100%);
+}

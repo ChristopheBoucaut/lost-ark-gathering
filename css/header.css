@@ -1,0 +1,106 @@
+header {
+    margin: auto;
+    max-width: 1080px;
+}
+
+header #actions {
+    display: flex;
+}
+
+header #actions > div + div {
+    margin-left: 7px;
+}
+
+header #actions .open-modal,
+header #actions .filter {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+}
+
+header #actions [data-modal-id="character"] {
+    background-color: green;
+}
+
+header #actions [data-modal-id="list-ressources"] {
+    background-color: grey;
+}
+
+header #actions [data-modal-id="filter-continents"] {
+    background-color: blue;
+}
+
+header #actions .filter {
+    background-color: red;
+}
+
+header #actions .search {
+    flex: 1;
+    position: relative;
+}
+
+header #actions .search input {
+    box-sizing: border-box;
+    height: 28px;
+    width: 100%;
+}
+
+header #actions .search #results {
+    display: none;
+    background: white;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    max-height: 300px;
+    overflow: auto;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+header #actions .search input:focus + #results,
+header #actions .search #results:not(.hide):hover {
+    display: block;
+}
+
+header #actions .search #results li {
+    cursor: pointer;
+    padding: 7px 4px;
+}
+
+header #actions .search #results li:hover {
+    background-color: grey;
+    color: white;
+}
+
+header #actions .search #results li + li {
+    border-top: 1px solid black;
+}
+
+header #active-filters {
+    list-style: none;
+    margin: 14px 0;
+    padding: 0;
+}
+
+header #active-filters li {
+    border: 2px solid grey;
+    border-radius: 14px;
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 3px 7px;
+}
+
+header #active-filters li span {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+header #active-filters li span::before {
+    content: '✗';
+    color: red;
+}

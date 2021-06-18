@@ -1,0 +1,59 @@
+/* .ressource-high-spot::after {
+    content: '⭐';
+} */
+
+.hide {
+    display: none;
+}
+
+.ressource-type-herbalism::before {
+    content: '🌿';
+}
+
+.ressource-type-mining::before {
+    content: '⛏️';
+}
+
+.ressource-type-fishing::before {
+    content: '🎣';
+}
+
+.ressource-type-lumbering::before {
+    content: '🌳';
+}
+
+.ressource-type-hunting::before {
+    content: '🐇';
+}
+
+.ressource-type-archaeology::before {
+    content: '🔍';
+}
+
+.ressource-type-other::before {
+    content: '🔶';
+}
+
+[class*='ressource-type-']:not(.only-icon)::before {
+    padding-right: 3px;
+}
+
+.ressource-type-other:not(.only-icon)::before {
+    padding-right: 3px;
+}
+
+.ressource-quality-normal {
+    color: black;
+}
+
+.ressource-quality-unusual {
+    color: green;
+}
+
+.ressource-quality-rare {
+    color: blue;
+}
+
+.ressource-quality-exceptional {
+    color: orange;
+}
