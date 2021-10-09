@@ -24,6 +24,29 @@
         window.GatheringTools.refreshListingWithFilters();
     };
 
+    let itemsSelector = '#results > li';
+    let styleEl;
+    let previousFilter = '';
+    document.querySelector('header #actions .search input').onkeyup = function () {
+        let filter = normalizeStringToSearch(this.value);
+        if (filter === previousFilter) {
+            return;
+        }
+        previousFilter = filter;
+
+        if (styleEl) {
+            document.head.removeChild(styleEl);
+            styleEl = null;
+        }
+
+        if (filter) {
+            styleEl = document.createElement('style');
+            document.head.appendChild(styleEl);
+            var styleSheet = styleEl.sheet;
+            styleSheet.insertRule(itemsSelector+':not([data-normalized*="'+filter+'"]) { display: none; }', 0);
+        }
+    };
+
     function createContinentFilter(continent) {
         var inputEl = document.createElement('input');
         inputEl.id = 'continent-filter-' + continent.id;
@@ -56,6 +79,7 @@
     function createResultEl(ressource) {
         var resultEl = document.createElement('li');
         resultEl.classList.add('ressource-type-' + ressource.type);
+        resultEl.dataset.normalized = normalizeStringToSearch(ressource.name);
         resultEl.innerText = ressource.name;
         resultEl.onclick = function () {
             addRessourceFilter(ressource);
@@ -96,5 +120,18 @@
         searchParams.filters.splice(index, 1);
         el.remove();
         window.GatheringTools.refreshListingWithFilters();
+    }
+
+    function normalizeStringToSearch(s) {
+        // Remove useless spacing
+        s = s.replace(/\s+/g, ' ').toLowerCase();
+        s = s.replace(/’/g, '\'').toLowerCase();
+        if (s.normalize) {
+            // If we can, remove accents.
+            // Cf : https://stackoverflow.com/a/37511463
+            s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        }
+
+        return s;
     }
 })();
