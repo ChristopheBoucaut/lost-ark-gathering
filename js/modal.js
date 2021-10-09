@@ -1,6 +1,13 @@
 (function () {
     'use strict';
 
+    // To close with escape key
+    document.onkeyup = function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    };
+
     var tabsContainerEl = document.querySelector('#list-ressources > section > div:last-child > ul:first-child');
     var contentContainerEl = document.querySelector('#list-ressources > section > div:last-child > ul:last-child');
     var characterContainerEl = document.querySelector('#character > section > div:last-child');
