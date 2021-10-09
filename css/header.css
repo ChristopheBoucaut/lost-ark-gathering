@@ -16,22 +16,13 @@ header #actions .filter {
     cursor: pointer;
     width: 28px;
     height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 20px;
 }
 
-header #actions [data-modal-id="character"] {
-    background-color: green;
-}
-
-header #actions [data-modal-id="list-ressources"] {
-    background-color: grey;
-}
-
-header #actions [data-modal-id="filter-continents"] {
-    background-color: blue;
-}
-
-header #actions .filter {
-    background-color: red;
+header #actions .filter:not(.active) {
+    filter: grayscale(100%);
 }
 
 header #actions .search {

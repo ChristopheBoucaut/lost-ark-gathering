@@ -16,14 +16,14 @@
     <body>
         <header>
             <div id="actions">
-                <div class="open-modal" data-modal-id="character"></div>
-                <div class="open-modal" data-modal-id="list-ressources"></div>
+                <div class="open-modal" data-modal-id="list-ressources" title="Liste des ressources">📖</div>
+                <div class="open-modal" data-modal-id="character" title="Statistiques du personnage">📇</div>
                 <div class="search">
                     <input type="text" placeholder="Filtrer sur une ressource" />
                     <ul id="results"></ul>
                 </div>
-                <div id="filter-hider-insufficient-level" class="filter"></div>
-                <div class="open-modal" data-modal-id="filter-continents"></div>
+                <div id="filter-hider-insufficient-level" class="filter" title="Afficher uniquement les ressources accessibles">⛔</div>
+                <div class="open-modal" data-modal-id="filter-continents" title="Filter par continent">🌏</div>
             </div>
             <ul id="active-filters"></ul>
         </header>

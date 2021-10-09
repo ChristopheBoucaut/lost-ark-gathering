@@ -21,6 +21,7 @@
 
     document.getElementById('filter-hider-insufficient-level').onclick = function () {
         searchParams.hideInsufficientLevel = !searchParams.hideInsufficientLevel;
+        this.classList.toggle('active');
         window.GatheringTools.refreshListingWithFilters();
     };
 
